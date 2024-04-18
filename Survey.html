@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+ h1 {
+    color:black;
+    text-align: center;
+    font-family:Georgia;
+    border:5px solid white;
+    border-radius:150px;
+    }
+ 
+h2 {
+    color:black;
+    text-align: center;
+    font-family:Georgia;
+        }
+
+
+</style>
+<body bgcolor="lavender">
+<marquee scrollamount="20"><h1>  
+   Survey Form</h1></marquee>
+
+<br><br>
+  <form id="form">
+   Name:<input type="text" id="ques1" placeholder="Name"> 
+   Age:<input type="text" id="ques1" placeholder="Age">
+   Grade&Section:<input type="text" id="ques1" placeholder="Grade&Section">
+
+    <br><br>
+
+<h2>Questions:</h2>
+
+    <div class="questions">
+      <label for="q1">Question 1: What is your favorite Food?</label>
+      <br>
+      <input type="text" id="q1" name="q1" placeholder="Type Here">
+    </div>
+    <br>
+    <div class="questions">
+       
+      <label for="q2">Question 2: Do you eat in the canteen?</label>
+      <br>
+      <input type="radio" id="q2-yes" name="q2" value="Yes">
+      <label for="q2-yes">Yes</label>
+      <input type="radio" id="q2-no" name="q2" value="No">
+      <label for="q2-no">No</label>
+      
+    </div>
+
+    <br>
+    <div class="questions">
+      <label for="q3">Question 3: what do you do after school??</label>
+      <br>
+       <input type="text" id="q3" name="q3" placeholder="other">
+     </div>
+    
+    <br>
+    <div class="question">
+      <label for="q4">Question 4: What is your favorite subject?</label>
+      <br>
+      <input type="text" id="q4" name="q4" placeholder="Type here">
+    </div>
+
+    <br>
+     <div class="question">
+      <label for="q5">Question 5: What is your favorite music? </label>
+      <br>
+        <input type="text" id="q5" name="q5" placeholder="Type here">
+    </div>
+
+
+      <br>
+    <div class="question">
+      <label for="q6">Question 6: What is your favorite type of music?</label>
+      <br>
+    
+           <input type="text" id="q6" name="q6" placeholder="Type here">
+      </div>
+    <br>
+    <br>
+    <div class="question">
+      <label for="q7">Question 7: Who is your favorite artist/band?</label>
+      <br>
+      <input type="text" id="q7" name="q7" placeholder="Type Here">
+    </div>
+    <br>
+    <div class="question">
+      <label for="q8">Question 8: What is your favorite movie or series?</label>
+      <br>
+      <input type="text" id="q8" name="q8">
+    </div>
+    </div>
+    <br>
+    <div class="questions">
+    <label for="q9">Question 9: What sport/s do you play?</label>
+      <br>
+      <select id="q9" name="q9">
+        <option value="Choose">Choose</option>
+        <option value="Basketball">Basketball</option>
+        <option value="Volleyball">Volleyball</option>
+        <option value="Badminton">Badminton</option>
+        
+      </select>
+    <input type="text" id="q9" name="q9" placeholder="other">
+    </div>
+    <br>
+
+    <br>
+    <div class="question">
+      <label for="q10">Question 10: Do you play any instrument?</label>
+      <br>
+       <input type="radio" id="q10-yes" name="q10" value="Yes">
+      <label for="q10-yes">Yes</label>
+      <input type="radio" id="q10-no" name="q10" value="No">
+      <label for="q10-no">No</label>
+
+          </div>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form data
+      var formData = new FormData(event.target);
+
+      // Convert form data to JSON
+      var jsonData = {};
+      for (var pair of formData.entries()) {
+        jsonData[pair[0]] = pair[1];
+      }
+
+      // Store form data locally
+      localStorage.setItem('datafromthesurvey', JSON.stringify(jsonData));
+
+      // Show success message
+      alert('Submitted Successfully!');
+    });
+  </script>
+</body>
+</html>
